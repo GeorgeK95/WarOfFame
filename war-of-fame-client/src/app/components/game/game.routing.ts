@@ -6,21 +6,22 @@ import {GameComponent} from './game/game.component';
 import {GameGuard} from '../../core/guard/game/game.guard';
 
 const GAME = 'game';
+const EMPTY = '';
+const KINGDOM = 'kingdom';
 const MAP = 'map';
 const STATISTICS = 'statistics';
 const REPORTS = 'reports';
 const MESSAGES = 'messages';
+const FULL = 'full';
 
 export const gameRoutes = [
-  {
-    path: GAME,
-    canActivate: [GameGuard],
-    children: [
-      {path: '', component: GameComponent, pathMatch: 'full'},
-      {path: MAP, component: MapComponent},
-      {path: STATISTICS, component: StatisticsComponent},
-      {path: REPORTS, component: ReportsComponent},
-      {path: MESSAGES, component: MessagesComponent}
-    ]
-  }
+  // {path: '', component: BooksListComponent},
+  // {path: 'details/:id', component: BookDetailsComponent},
+
+  {path: EMPTY, component: GameComponent},
+  // {path: KINGDOM, component: GameComponent},
+  {path: MAP, component: MapComponent},
+  {path: STATISTICS, component: StatisticsComponent},
+  {path: REPORTS, component: ReportsComponent},
+  {path: MESSAGES, component: MessagesComponent}
 ];

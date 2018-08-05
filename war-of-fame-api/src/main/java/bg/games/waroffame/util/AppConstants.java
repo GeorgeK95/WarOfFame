@@ -84,8 +84,10 @@ public interface AppConstants {
 
     //    CONSTANTS
     int ROLE_NAME_LENGH_VALUE = 20;
+    int TOWN_NAME_LENGH_VALUE = 30;
     String USERS = "users";
     String ROLES = "roles";
+    String TOWNS = "towns";
     int NAME_MAX_VALUE = 40;
     int USER_NAME_MAX_VALUE = 15;
     int EMAIL_MAX_VALUE = 40;
@@ -127,4 +129,6 @@ public interface AppConstants {
     String PAGE_SIZE_MUST_NOT_BE_GREATER_THAN_MESSAGE = "Page size must not be greater than ";
     long DAYS_MIN_VALUE = 0;
     long HOURS_MIN_VALUE = 0;
+    String MY_FIRST_TOWN = "My First Town";
+
 }

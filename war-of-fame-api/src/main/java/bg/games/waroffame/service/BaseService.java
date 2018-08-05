@@ -21,7 +21,7 @@ public abstract class BaseService<T> {
         this.userRepository = userRepository;
     }
 
-    protected ResponseEntity<?> vaidateSignUpData(SignUpRequestModel signUpRequestModel) {
+    protected ResponseEntity<?> validateSignUpData(SignUpRequestModel signUpRequestModel) {
         if (userRepository.existsByUsername(signUpRequestModel.getUsername()))
             return new ResponseEntity(new ApiResponseModel(false, USERNAME_IS_ALREADY_TAKEN_MESSAGE),
                     HttpStatus.BAD_REQUEST);

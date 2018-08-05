@@ -9,7 +9,8 @@
     <div class="navbar-collapse collapse" id="navbarResponsive">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" *ngIf="!isLoggedIn()" href="https://github.com/GeorgeK95/WarOfFame" target="_blank">GitHub</a>
+          <a class="nav-link" *ngIf="!isLoggedIn()" href="https://github.com/GeorgeK95/WarOfFame"
+             target="_blank">GitHub</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" *ngIf="!isLoggedIn()" routerLink="/contacts">Contacts</a>
@@ -41,9 +42,7 @@
         </li>
 
         <li class="nav-item">
-          <form (ngSubmit)="onLogout()" *ngIf="isLoggedIn()">
-            <button type="submit" class="btn btn-link nav-link sign-out-btn">Sign Out</button>
-          </form>
+          <a class="nav-link" *ngIf="isLoggedIn()" (click)="onLogout()">Sign Out</a>
         </li>
       </ul>
     </div>

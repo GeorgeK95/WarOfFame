@@ -6,6 +6,8 @@ import {SignInComponent} from './components/auth/signIn/sign-in.component';
 import {ContactsComponent} from './components/contacts/contacts.component';
 import {AboutComponent} from './components/about/about.component';
 import {GameModule} from './components/game/game.module';
+import {PageNotFoundComponent} from './components/shared/page-not-found/page-not-found.component';
+import {GameGuard} from './core/guard/game/game.guard';
 
 const FULL = 'full';
 const AUTH_SIGNUP = 'auth/signup';
@@ -22,8 +24,8 @@ const appRoutes = [
   {path: AUTH_SIGNIN, component: SignInComponent},
   {path: ABOUT, component: AboutComponent},
   {path: CONTACTS, component: ContactsComponent},
-  {path: GAME, loadChildren: () => GameModule},
-  {path: ALL, component: HomeComponent}
+  {path: GAME, canActivate: [GameGuard], loadChildren: () => GameModule},
+  {path: ALL, component: PageNotFoundComponent}
 ];
 
 @NgModule({

@@ -1,9 +1,11 @@
 package bg.games.waroffame.loader;
 
 import bg.games.waroffame.model.entity.Role;
+import bg.games.waroffame.model.entity.Town;
 import bg.games.waroffame.model.entity.User;
 import bg.games.waroffame.model.enumeration.RoleName;
 import bg.games.waroffame.repository.RoleRepository;
+import bg.games.waroffame.repository.TownRepository;
 import bg.games.waroffame.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -11,6 +13,8 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 import java.util.Set;
+
+import static bg.games.waroffame.util.AppConstants.MY_FIRST_TOWN;
 
 @Component
 public class DataLoader implements ApplicationRunner {
@@ -25,11 +29,13 @@ public class DataLoader implements ApplicationRunner {
 
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
+    private final TownRepository townRepository;
 
     @Autowired
-    public DataLoader(UserRepository userRepository, RoleRepository roleRepository) {
+    public DataLoader(UserRepository userRepository, RoleRepository roleRepository, TownRepository townRepository) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
+        this.townRepository = townRepository;
     }
 
     @Override
@@ -51,5 +57,9 @@ public class DataLoader implements ApplicationRunner {
         User user = new User(USER, USER_EMAIL, USER_PASS);
         user.setRoles(Set.of(roleUser));
         this.userRepository.save(user);
+
+        Town initialTown = new Town(MY_FIRST_TOWN);
+        initialTown.setOwner(user);
+        this.townRepository.save(initialTown);
     }
 }

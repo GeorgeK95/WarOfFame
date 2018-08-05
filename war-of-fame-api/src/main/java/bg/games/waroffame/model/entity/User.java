@@ -48,6 +48,9 @@ public class User {
     @Column(nullable = false)
     private Boolean isBanned = false;
 
+    @OneToMany(mappedBy = "owner")
+    private Set<Town> towns;
+
     public User() {
     }
 
@@ -106,11 +109,23 @@ public class User {
         this.roles.add(role);
     }
 
+    public void addTown(Town town) {
+        this.towns.add(town);
+    }
+
     public Boolean getBanned() {
         return isBanned;
     }
 
     public void setBanned(Boolean banned) {
         isBanned = banned;
+    }
+
+    public Set<Town> getTowns() {
+        return towns;
+    }
+
+    public void setTowns(Set<Town> towns) {
+        this.towns = towns;
     }
 }

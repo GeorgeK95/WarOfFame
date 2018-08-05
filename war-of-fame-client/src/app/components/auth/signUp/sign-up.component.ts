@@ -9,7 +9,7 @@ import {AuthService} from '../../../core/service/auth/auth.service';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit {
-  readonly HOME_URL = '/';
+  readonly SIGN_IN_URL = '/auth/signin';
   private register: SignUpModel;
 
   constructor(private service: AuthService, private router: Router) {
@@ -18,7 +18,7 @@ export class SignUpComponent implements OnInit {
   onRegister() {
     this.service.register(this.register)
       .subscribe(() => {
-        this.router.navigate([this.HOME_URL]);
+        this.router.navigate([this.SIGN_IN_URL]);
       }, error => console.log(error));
   }
 

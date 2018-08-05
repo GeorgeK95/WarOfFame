@@ -23,7 +23,7 @@ import {ContactsComponent} from './components/contacts/contacts.component';
     AppComponent,
     AboutComponent,
     ContactsComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
