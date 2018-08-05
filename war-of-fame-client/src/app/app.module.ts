@@ -17,6 +17,8 @@ import {SignInInterceptor} from './core/interceptor/sign-in.interceptor';
 import {TokenInterceptor} from './core/interceptor/token.interceptor';
 import {AuthService} from './core/service/auth/auth.service';
 import {ContactsComponent} from './components/contacts/contacts.component';
+import {ToastrModule} from 'ngx-toastr';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import {ContactsComponent} from './components/contacts/contacts.component';
   imports: [
     BrowserModule,
     HttpClientModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(),// ToastrModule added
     AppRouter,
     ServiceModule,
     AuthModule,

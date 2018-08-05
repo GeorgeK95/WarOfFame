@@ -64,7 +64,7 @@ public class AuthService extends BaseService implements IAuthService {
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
         String jwt = tokenProvider.generateToken(authentication);
-        return ResponseEntity.ok(new JwtAuthenticationResponseModel(jwt));
+        return ResponseEntity.ok(new JwtAuthenticationResponseModel(jwt, authentication.getName()));
     }
 
     @Override
@@ -77,7 +77,9 @@ public class AuthService extends BaseService implements IAuthService {
 
         this.persistNewUser(signUpRequestModel);
 
-        return new ResponseEntity<>(new Gson().toJson(USER_REGISTERED_SUCCESSFULLY_MESSAGE), HttpStatus.CREATED);
+        return new ResponseEntity<>(new Gson().toJson(
+                String.format(USER_REGISTERED_SUCCESSFULLY_MESSAGE, signUpRequestModel.getUsername())
+        ), HttpStatus.CREATED);
     }
 
     private void persistNewUser(SignUpRequestModel signUpRequestModel) {

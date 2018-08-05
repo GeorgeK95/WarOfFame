@@ -1,11 +1,11 @@
 package bg.games.waroffame.factory;
 
-import bg.games.waroffame.model.response.ApiResponseModel;
+import bg.games.waroffame.model.response.HttpErrorResponse;
 
 public final class ApiResponseModelFactory {
 
-    public static ApiResponseModel generateApiResponseModel(boolean success, String msg) {
-        return new ApiResponseModel(success, msg);
+    public static HttpErrorResponse generateApiResponseModel(int status, String msg) {
+        return new HttpErrorResponse(status, msg);
     }
 
     private ApiResponseModelFactory() {

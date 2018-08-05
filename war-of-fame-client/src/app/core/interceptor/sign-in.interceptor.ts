@@ -3,30 +3,25 @@ import {Observable} from 'rxjs';
 import {tap} from 'rxjs/operators';
 import {Router} from '@angular/router';
 import {Injectable} from '@angular/core';
+import {ToastrService} from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SignInInterceptor implements HttpInterceptor {
-  readonly LOGIN = 'login';
-  readonly SIGNUP = 'signup';
-  readonly CREATE = 'create';
-  readonly ALL = '/furniture/all';
-  readonly DETAILS = 'details';
-  readonly DELETE = 'delete';
-  readonly EDIT = 'edit';
-  readonly MY_FURNITURE_URL = '/furniture/mine';
-  readonly ALL_URL = '/all';
-  readonly SIGN_IN_URL = '/signin';
-  readonly HOME_URL = '/home';
-  readonly AUTH_TOKEN = 'authToken';
-  readonly TOKEN = 'token';
+  readonly SIGN_IN = 'signin';
+  readonly SIGN_UP = 'signup';
   readonly USERNAME = 'username';
-  readonly USER = 'user';
-  readonly NAME = 'name';
+  readonly ACCESS_TOKEN = 'accessToken';
+  readonly SIGN_IN_URL = '/signin';
+  readonly ABOUT_URL = '/about';
+  readonly HOME_URL = '/home';
+  readonly AUTH_TOKEN = 'authtoken';
+  readonly SUCCESS = 'Success.';
+  readonly SIGNED_IN_SUCCESSFULLY_MESSAGE = 'Signed in successfully.';
 
   constructor(
-    // private toastr: ToastrService,
+    private toastr: ToastrService,
     private router: Router
   ) {
   }
@@ -36,53 +31,23 @@ export class SignInInterceptor implements HttpInterceptor {
       .pipe(
         tap(
           (event: HttpEvent<any>) => {
-            if (event instanceof HttpResponse && req.url.endsWith(this.LOGIN)) {
+            if (event instanceof HttpResponse && req.url.endsWith(this.SIGN_IN)) {
               this.setDataToLocalStorage(event.body);
-              // this.toastr.success(event.body.message);
+              this.toastr.success(this.SIGNED_IN_SUCCESSFULLY_MESSAGE, this.SUCCESS);
               this.router.navigate([this.HOME_URL]);
             } else {
-              if (event instanceof HttpResponse && req.url.endsWith(this.SIGNUP)) {
-                // this.toastr.success(event.body.message);
+              if (event instanceof HttpResponse && req.url.endsWith(this.SIGN_UP)) {
+                this.toastr.success(event.body, this.SUCCESS);
                 this.router.navigate([this.SIGN_IN_URL]);
-              } else {
-                if (event instanceof HttpResponse && req.url.endsWith(this.CREATE)) {
-                  // this.toastr.success(event.body.message);
-                  this.router.navigate([this.ALL]);
-                } else {
-                  if (event instanceof HttpResponse && req.url.indexOf(this.DETAILS) !== -1) {
-                    if (event.body.message) {
-                      // this.toastr.error(event.body.message);
-                      this.router.navigate([this.ALL_URL]);
-                    }
-                  } else {
-                    if (event instanceof HttpResponse && req.url.indexOf(this.DELETE) !== -1) {
-                      if (event.body.success) {
-                        // this.toastr.success(event.body.message);
-                      } else {
-                        // this.toastr.error(event.body.message);
-                        this.router.navigate([this.MY_FURNITURE_URL]);
-                      }
-                    } else {
-                      if (event instanceof HttpResponse && req.url.includes(this.EDIT)) {
-                        // this.toastr.success(event.body.message);
-                        this.router.navigate([this.ALL]);
-                      } else {
-                        if (event instanceof HttpResponse && req.url.endsWith(this.DELETE)) {
-                          // this.toastr.success(event.body.message);
-                          this.router.navigate([this.ALL]);
-                        }
-                      }
-                    }
-                  }
-                }
               }
             }
-          })
+          }
+        )
       );
   }
 
   private setDataToLocalStorage(res: object): void {
-    localStorage.setItem(this.AUTH_TOKEN, res[this.TOKEN]);
-    localStorage.setItem(this.USERNAME, JSON.stringify(res[this.USER]));
+    localStorage.setItem(this.AUTH_TOKEN, res[this.ACCESS_TOKEN]);
+    localStorage.setItem(this.USERNAME, res[this.USERNAME]);
   }
 }

@@ -25,23 +25,6 @@ export class AuthService {
     return this.httpClient.post(this.loginUrl, loginModel);
   }
 
-  /*private createAuthHeaders(isTokenProvided: boolean): HttpHeaders {
-    let AUTH_HEADERS = {};
-
-    if (isTokenProvided) {
-      AUTH_HEADERS = {
-        'Authorization': `Bearer ${localStorage.getItem(this.AUTH_TOKEN)}`,
-        'Content-Type': 'application/json'
-      };
-    } else {
-      AUTH_HEADERS = {
-        'Content-Type': 'application/json'
-      };
-    }
-
-    return new HttpHeaders(AUTH_HEADERS);
-  }*/
-
   checkIfLoggedIn() {
     return this.authToken === localStorage.getItem(this.AUTH_TOKEN);
   }

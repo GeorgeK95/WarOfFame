@@ -62,7 +62,7 @@ public interface AppConstants {
     String BEARER_ = "Bearer ";
 
     String POLL_CREATED_SUCCESSFULLY_MESSAGE = "Poll Created Successfully";
-    String USER_REGISTERED_SUCCESSFULLY_MESSAGE = "User registered successfully.";
+    String USER_REGISTERED_SUCCESSFULLY_MESSAGE = "%s registered successfully.";
     String EMAIL_ADDRESS_ALREADY_IN_USE_MESSAGE = "Email Address already in use!";
     String PASSWORDS_MISMATCH_MESSAGE = "Passwords do not match!";
     String USERNAME_IS_ALREADY_TAKEN_MESSAGE = "Username is already taken!";

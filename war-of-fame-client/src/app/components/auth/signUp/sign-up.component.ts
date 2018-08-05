@@ -19,7 +19,7 @@ export class SignUpComponent implements OnInit {
     this.service.register(this.register)
       .subscribe(() => {
         this.router.navigate([this.SIGN_IN_URL]);
-      }, error => console.log(error));
+      });
   }
 
   ngOnInit() {

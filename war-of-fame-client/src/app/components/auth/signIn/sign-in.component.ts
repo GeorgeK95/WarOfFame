@@ -10,7 +10,6 @@ import {SignInModel} from '../../../core/model/sign-in.model';
 })
 export class SignInComponent implements OnInit {
 
-  readonly AUTH_TOKEN = 'authtoken';
   readonly ACCESS_TOKEN = 'accessToken';
   readonly HOME_URL = '/';
   private login: SignInModel;
@@ -22,7 +21,6 @@ export class SignInComponent implements OnInit {
     this.service.login(this.login)
       .subscribe(res => {
         this.service.authToken = res[this.ACCESS_TOKEN];
-        localStorage.setItem(this.AUTH_TOKEN, res[this.ACCESS_TOKEN]);
         this.router.navigate([this.HOME_URL]);
       }, error => console.log(error));
   }

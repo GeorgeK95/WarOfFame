@@ -2,6 +2,7 @@ import {HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest}
 import {Observable, throwError} from 'rxjs';
 import {catchError} from 'rxjs/operators';
 import {Injectable} from '@angular/core';
+import {ToastrService} from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -9,26 +10,23 @@ import {Injectable} from '@angular/core';
 export class ErrorInterceptor implements HttpInterceptor {
   readonly UNAUTHORIZED_STATUS_CODE = 401;
   readonly BAD_REQUEST_STATUS_CODE = 400;
+  readonly CONFLICT_STATUS_CODE = 409;
   readonly ERROR = 'Error!';
   readonly WARNING = 'Warning!';
+  readonly INVALID_DATA_PROVIDED = 'Invalid data provided !';
 
-  constructor(/*private toastr: ToastrService*/) {
+  constructor(private toastr: ToastrService) {
   }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request)
       .pipe(
         catchError((err: HttpErrorResponse) => {
-          if (err.status === this.UNAUTHORIZED_STATUS_CODE) {
-            // this.toastr.error(err.error.message, this.ERROR);
+          if (err.status === this.CONFLICT_STATUS_CODE) {
+            this.toastr.error(err.error.body, this.ERROR);
           } else {
             if (err.status === this.BAD_REQUEST_STATUS_CODE) {
-              // this.toastr.error(err.error.message, this.WARNING);
-              for (const e in err.error.errors) {
-                if (err.error.errors.hasOwnProperty(e)) {
-                  // this.toastr.error(err.error.errors[e]);
-                }
-              }
+              this.toastr.error(this.INVALID_DATA_PROVIDED, this.ERROR);
             }
           }
 
