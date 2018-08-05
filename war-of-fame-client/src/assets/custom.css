@@ -10,8 +10,8 @@
   float: none;
 }
 
-.app-form, .ng-default-template {
-  margin-top: 80px;
+.mt-58 {
+  margin-top: 58px;
 }
 
 .align-center {
@@ -34,12 +34,8 @@
   color: #dc3545;
 }
 
-.sign-out-btn {
-  font-weight: bold;
-}
-
 @media only screen and (max-width: 230px) {
-  .ng-default-template, .app-form {
-    margin-top: 121px;
-  }
+  /*.app-form {*/
+  /*margin-top: 121px;*/
+  /*}*/
 }

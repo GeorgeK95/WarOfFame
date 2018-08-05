@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+
+body, html {
+  height: 100%;
+}
+
+.bgimg {
+  background-image: url('https://static.fakti.bg/news2016/207630/001c613cce94d920927794bd5d74367c_big.jpg');
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

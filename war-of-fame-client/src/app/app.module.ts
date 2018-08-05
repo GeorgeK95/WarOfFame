@@ -30,8 +30,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     HttpClientModule,
-    BrowserAnimationsModule, // required animations module
-    ToastrModule.forRoot(),// ToastrModule added
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     AppRouter,
     ServiceModule,
     AuthModule,
