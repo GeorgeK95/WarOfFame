@@ -21,12 +21,46 @@
   border-left: 4px solid transparent;
 }
 
+.md-form {
+  position: relative;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.mb-3, .my-3 {
+  margin-bottom: 1rem !important;
+}
+
+.active-cyan input[type=text] {
+  border-bottom: 1px solid #4dd0e1;
+  box-shadow: 0 1px 0 0 #4dd0e1;
+}
+
+.transparent {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #4dd0e1;
+  font-size: 25px;
+  border: none;
+}
+
+.hoverTable td {
+  padding: 7px;
+  border: #315795 1px solid;
+  font-family: "tradegothic";
+  font-size: 14px;
+  color: #315795;
+}
+
 @media only screen and (max-width: 768px) {
   .table th, .table td {
     padding: 0.60rem;
     vertical-align: top;
     border-top: 1px solid #333;
   }
+}
+
+tr:hover td {
+  background: #4dd0e1;
 }
 
 @media only screen and (max-width: 544px) {

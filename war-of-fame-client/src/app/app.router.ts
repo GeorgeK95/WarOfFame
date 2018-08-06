@@ -12,6 +12,7 @@ import {GameGuard} from './core/guard/game/game.guard';
 const FULL = 'full';
 const AUTH_SIGNUP = 'auth/signup';
 const AUTH_SIGNIN = 'auth/signin';
+const AUTH_PROFILE = 'auth/profile/:id';
 const ABOUT = 'about';
 const GAME = 'game';
 const CONTACTS = 'contacts';
@@ -22,6 +23,7 @@ const appRoutes = [
   {path: HOME, component: HomeComponent, pathMatch: FULL},
   {path: AUTH_SIGNUP, component: SignUpComponent},
   {path: AUTH_SIGNIN, component: SignInComponent},
+  {path: AUTH_PROFILE, component: PageNotFoundComponent},
   {path: ABOUT, component: AboutComponent},
   {path: CONTACTS, component: ContactsComponent},
   {path: GAME, /*canActivate: [GameGuard],*/ loadChildren: () => GameModule},

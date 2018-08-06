@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {UserModel} from '../../../core/model/user.model';
-import {UserService} from '../../../core/service/user/user.service';
+import {StatisticsService} from '../../../core/service/statistics/statistics.service';
 
 @Component({
   selector: 'app-statistics',
@@ -16,12 +16,12 @@ export class StatisticsComponent implements OnInit {
   private sortedByPopulationUsers: UserModel[];
   private sortedByTownsUsers: UserModel[];
   private page = 1;
-  private itemsPerPage = 5;
-  private popCaretClass = this.CARET_DOWN;
-  private townsCaretClass = this.CARET_DOWN;
-  private idsCaretClass = this.CARET_DOWN;
+  private itemsPerPage = 6;
+  private popCaretClass = this.CARET_UP;
+  private townsCaretClass = this.CARET_UP;
+  private idsCaretClass = this.CARET_UP;
 
-  constructor(private service: UserService) {
+  constructor(private service: StatisticsService) {
   }
 
   ngOnInit() {
@@ -36,19 +36,28 @@ export class StatisticsComponent implements OnInit {
 
   orderByPopulation() {
     this.users = this.sortedByPopulationUsers.reverse();
-    // this.sortedByPopulationUsers = this.sortedByPopulationUsers.reverse();
     this.popCaretClass = this.popCaretClass === this.CARET_DOWN ? this.CARET_UP : this.CARET_DOWN;
   }
 
   orderByTowns() {
     this.users = this.sortedByTownsUsers.reverse();
-    // this.sortedByTownsUsers = this.sortedByTownsUsers.reverse();
     this.townsCaretClass = this.townsCaretClass === this.CARET_DOWN ? this.CARET_UP : this.CARET_DOWN;
   }
 
   orderById() {
     this.users = this.sortedByIdUsers.reverse();
-    // this.sortedByIdUsers = this.sortedByIdUsers.reverse();
     this.idsCaretClass = this.idsCaretClass === this.CARET_DOWN ? this.CARET_UP : this.CARET_DOWN;
+  }
+
+  searchByUsername(targetUsername: string) {
+    const found = this.sortedByIdUsers.filter((user: UserModel) => user.username.includes(targetUsername));
+
+    if (found) {
+      this.users = found;
+    }
+  }
+
+  seremise(id: number) {
+    console.log(id);
   }
 }

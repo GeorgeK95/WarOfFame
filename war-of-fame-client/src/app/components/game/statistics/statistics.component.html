@@ -1,6 +1,11 @@
 <div class="container mt-58 align-center">
   <h1>Statistics</h1>
 
+  <div class="md-form active-cyan active-cyan-2 mb-3">
+    <input type="text" class="form-control transparent" #search
+           (input)="searchByUsername(search.value)">
+  </div>
+
   <table class="table table-hover">
     <thead>
     <tr>
@@ -13,20 +18,24 @@
     </thead>
     <tbody>
 
+    <!--<span (mouseover)="hover=true" (mouseleave)="hover=false">-->
     <tr *ngFor="let user of users | paginate: {
     id: ALL_USERS,
     itemsPerPage: itemsPerPage,
     currentPage: page
-    }">
-      <th scope="row">{{user.id}}</th>
-      <td>{{user.username}}</td>
-      <td>ALpha</td>
+    }"
+        (click)="seremise(user.id)">
+      <td scope="row">{{user.id}}</td>
+      <td><a routerLink="/auth/profile/{{user.id}}">{{user.username}}</a></td>
+      <td><a href="#">Alpha</a></td>
+      <!--{{user.clan.name}}-->
       <td>{{user.population}}</td>
       <td>{{user.townsCount}}</td>
     </tr>
 
     </tbody>
   </table>
+
 
   <pagination-controls id="allUsers"
                        (pageChange)="page = $event"

@@ -6,6 +6,7 @@ public class UserResponseModel {
     private String username;
     private int townsCount;
     private int population;
+    private ClanResponseModel clan;
 
     public Long getId() {
         return id;
@@ -37,5 +38,13 @@ public class UserResponseModel {
 
     public void setPopulation(int population) {
         this.population = population;
+    }
+
+    public ClanResponseModel getClan() {
+        return clan;
+    }
+
+    public void setClan(ClanResponseModel clan) {
+        this.clan = clan;
     }
 }
