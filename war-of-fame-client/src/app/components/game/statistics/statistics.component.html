@@ -23,11 +23,10 @@
     id: ALL_USERS,
     itemsPerPage: itemsPerPage,
     currentPage: page
-    }"
-        (click)="seremise(user.id)">
+    }">
       <td scope="row">{{user.id}}</td>
-      <td><a routerLink="/auth/profile/{{user.id}}">{{user.username}}</a></td>
-      <td><a href="#">Alpha</a></td>
+      <td><a routerLink="/user/profile/{{user.username}}">{{user.username}}</a></td>
+      <td><a routerLink="/clan/profile/alpha">Alpha</a></td>
       <!--{{user.clan.name}}-->
       <td>{{user.population}}</td>
       <td>{{user.townsCount}}</td>

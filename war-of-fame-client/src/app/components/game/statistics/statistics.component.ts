@@ -56,8 +56,4 @@ export class StatisticsComponent implements OnInit {
       this.users = found;
     }
   }
-
-  seremise(id: number) {
-    console.log(id);
-  }
 }

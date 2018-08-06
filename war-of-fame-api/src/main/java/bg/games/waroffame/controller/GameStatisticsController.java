@@ -33,7 +33,7 @@ public class GameStatisticsController {
 
     @GetMapping(STATISTICS_URL)
     public ResponseEntity<?> game() {
-        //todo: refactor service architecture
+        //todo: refactor service and controller architectures
         List<UserResponseModel> allUsers = DTOConverter.convert(this.userRepository.findAll(), UserResponseModel.class);
         List<UserResponseModel> sortedByTownsCount = DTOConverter.convert(this.userRepository.getAllByTownsCountDesc(),
                 UserResponseModel.class);
