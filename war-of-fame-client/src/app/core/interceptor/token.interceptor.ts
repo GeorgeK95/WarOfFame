@@ -6,7 +6,7 @@ import {Injectable} from '@angular/core';
   providedIn: 'root'
 })
 export class TokenInterceptor implements HttpInterceptor {
-  readonly AUTHTOKEN = 'authToken';
+  readonly AUTHTOKEN = 'authtoken';
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     if (this.retrieveToken() !== null) {

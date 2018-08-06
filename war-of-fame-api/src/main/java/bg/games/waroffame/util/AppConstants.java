@@ -26,6 +26,7 @@ public interface AppConstants {
     String HOME_URL = "/";
     String USERS_URL = "/users";
     String GAME_URL = "/game";
+    String STATISTICS_URL = "/statistics";
     String ADMIN_URL = "/admin";
     String AUTH_ALL_URL = "/auth/**";
     String API_USER_CHECK_USERNAME_AVAILABILITY_URL = "/api/user/checkUsernameAvailability";
@@ -87,6 +88,7 @@ public interface AppConstants {
     int TOWN_NAME_LENGH_VALUE = 30;
     String USERS = "users";
     String ROLES = "roles";
+    String CLANS = "clans";
     String TOWNS = "towns";
     int NAME_MAX_VALUE = 40;
     int USER_NAME_MAX_VALUE = 15;

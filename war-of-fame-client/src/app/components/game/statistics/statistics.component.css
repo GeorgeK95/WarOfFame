@@ -1,0 +1,38 @@
+.caret-down {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 2px;
+  vertical-align: middle;
+  border-top: 4px dashed;
+  border-top: 4px solid \9;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent
+}
+
+.caret-up {
+  border-bottom: 4px solid #000000;
+  margin-left: 2px;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: middle;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+}
+
+@media only screen and (max-width: 768px) {
+  .table th, .table td {
+    padding: 0.60rem;
+    vertical-align: top;
+    border-top: 1px solid #333;
+  }
+}
+
+@media only screen and (max-width: 544px) {
+  .table th, .table td {
+    padding: 0.20rem;
+    vertical-align: top;
+    border-top: 1px solid #333;
+  }
+}

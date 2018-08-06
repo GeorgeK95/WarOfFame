@@ -20,7 +20,7 @@ public class Town {
     private String name;
 
     @Column(nullable = false)
-    private int population = 0;
+    private int population = 10;
 
     @ManyToOne
     private User owner;

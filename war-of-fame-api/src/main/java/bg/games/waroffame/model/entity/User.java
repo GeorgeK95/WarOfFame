@@ -4,6 +4,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import java.util.HashSet;
 import java.util.Set;
@@ -27,15 +29,19 @@ public class User {
     private Long id;
 
     @NotBlank
+//    @Min(USER_NAME_MIN_VALUE)
+//    @Max(USER_NAME_MAX_VALUE)
     @Column(nullable = false, length = USER_NAME_MAX_VALUE)
     private String username;
 
     @NotBlank
+//    @Max(EMAIL_MAX_VALUE)
     @Email
     @Column(unique = true, nullable = false, length = EMAIL_MAX_VALUE)
     private String email;
 
     @NotBlank
+//    @Min(PASSWORD_MIN_VALUE)
     @Column(nullable = false)
     private String password;
 
@@ -51,6 +57,9 @@ public class User {
     @OneToMany(mappedBy = "owner")
     private Set<Town> towns;
 
+    @ManyToOne
+    private Clan clan;
+
     public User() {
     }
 
@@ -58,6 +67,14 @@ public class User {
         this.username = username;
         this.email = email;
         this.password = password;
+    }
+
+    public int getTownsCount() {
+        return this.towns.size();
+    }
+
+    public int getPopulation() {
+        return this.towns.stream().mapToInt(Town::getPopulation).sum();
     }
 
     @PrePersist
@@ -127,5 +144,13 @@ public class User {
 
     public void setTowns(Set<Town> towns) {
         this.towns = towns;
+    }
+
+    public Clan getClan() {
+        return clan;
+    }
+
+    public void setClan(Clan clan) {
+        this.clan = clan;
     }
 }

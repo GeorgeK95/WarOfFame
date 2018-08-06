@@ -1,10 +1,10 @@
 package bg.games.waroffame.model.response;
 
-public class HttpErrorResponse {
+public class HttpErrorResponseModel {
     private int status;
     private String body;
 
-    public HttpErrorResponse(int status, String body) {
+    public HttpErrorResponseModel(int status, String body) {
         this.status = status;
         this.body = body;
     }

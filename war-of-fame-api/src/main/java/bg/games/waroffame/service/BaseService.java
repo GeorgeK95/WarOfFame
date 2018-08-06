@@ -1,7 +1,7 @@
 package bg.games.waroffame.service;
 
 import bg.games.waroffame.model.request.SignUpRequestModel;
-import bg.games.waroffame.model.response.HttpErrorResponse;
+import bg.games.waroffame.model.response.HttpErrorResponseModel;
 import bg.games.waroffame.repository.UserRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,15 +23,15 @@ public abstract class BaseService<T> {
 
     protected ResponseEntity<?> validateSignUpData(SignUpRequestModel signUpRequestModel) {
         if (userRepository.existsByUsername(signUpRequestModel.getUsername()))
-            return new ResponseEntity(new HttpErrorResponse(HttpStatus.CONFLICT.value(), USERNAME_IS_ALREADY_TAKEN_MESSAGE),
+            return new ResponseEntity(new HttpErrorResponseModel(HttpStatus.CONFLICT.value(), USERNAME_IS_ALREADY_TAKEN_MESSAGE),
                     HttpStatus.CONFLICT);
 
         if (userRepository.existsByEmail(signUpRequestModel.getEmail()))
-            return new ResponseEntity(new HttpErrorResponse(HttpStatus.CONFLICT.value(), EMAIL_ADDRESS_ALREADY_IN_USE_MESSAGE),
+            return new ResponseEntity(new HttpErrorResponseModel(HttpStatus.CONFLICT.value(), EMAIL_ADDRESS_ALREADY_IN_USE_MESSAGE),
                     HttpStatus.CONFLICT);
 
         if (!signUpRequestModel.getPassword().equals(signUpRequestModel.getConfirm()))
-            return new ResponseEntity(new HttpErrorResponse(HttpStatus.BAD_REQUEST.value(), PASSWORDS_MISMATCH_MESSAGE),
+            return new ResponseEntity(new HttpErrorResponseModel(HttpStatus.BAD_REQUEST.value(), PASSWORDS_MISMATCH_MESSAGE),
                     HttpStatus.BAD_REQUEST);
 
         return null;

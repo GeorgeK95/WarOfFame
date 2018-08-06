@@ -24,7 +24,7 @@ const appRoutes = [
   {path: AUTH_SIGNIN, component: SignInComponent},
   {path: ABOUT, component: AboutComponent},
   {path: CONTACTS, component: ContactsComponent},
-  {path: GAME, canActivate: [GameGuard], loadChildren: () => GameModule},
+  {path: GAME, /*canActivate: [GameGuard],*/ loadChildren: () => GameModule},
   {path: ALL, component: PageNotFoundComponent}
 ];
 
