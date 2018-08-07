@@ -1,0 +1,38 @@
+<div class="container mt-58 align-center">
+  <h1>{{user.username}}</h1>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <p class="col-form-label">Rank</p>
+            <p class="col-form-label font-weight-light">289</p>
+          </div>
+          <div class="form-group">
+            <p class="col-form-label">Rank</p>
+            <p class="col-form-label font-weight-light">289</p>
+          </div>
+          <div class="form-group">
+            <p class="col-form-label">Clan</p>
+            <p class="col-form-label font-weight-light">Apha</p>
+          </div>
+          <div class="form-group">
+            <p class="col-form-label">Population</p>
+            <p class="col-form-label font-weight-light">Population</p>
+          </div>
+
+          <div class="form-group">
+            <button class="btn btn-info">Send PM</button>
+            <button *ngIf="hasAuthorities" class="btn btn-warning">Edit</button>
+            <button *ngIf="hasAuthorities" class="btn btn-danger">Delete</button>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <img src="../../../../assets/hero.jpg"/>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

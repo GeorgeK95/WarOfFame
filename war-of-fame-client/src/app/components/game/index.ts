@@ -4,6 +4,7 @@ import {ReportsComponent} from './reports/reports.component';
 import {StatisticsComponent} from './statistics/statistics.component';
 import {GameComponent} from './game/game.component';
 import {ClanComponent} from './clan/clan.component';
+import {ProfileComponent} from './profile/profile.component';
 
 export const gameComponents = [
   GameComponent,
@@ -11,5 +12,6 @@ export const gameComponents = [
   MessagesComponent,
   ReportsComponent,
   StatisticsComponent,
-  ClanComponent
+  ClanComponent,
+  ProfileComponent
 ];

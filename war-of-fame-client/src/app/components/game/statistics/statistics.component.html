@@ -25,8 +25,9 @@
     currentPage: page
     }">
       <td scope="row">{{user.id}}</td>
-      <td><a routerLink="/auth/user/{{user.username}}">{{user.username}}</a></td>
-      <td *ngIf="user.clan"><a routerLink="/game/clan/{{user.clan.name}}">{{user.clan.name}}</a></td>
+      <td><a routerLink="/game/user/{{user.username}}">{{user.username}}</a></td>
+      <!--<a routerLink="/game/clan/{{user.clan.name}}">{{user.clan.name}}</a>-->
+      <td *ngIf="user.clan">{{user.clan.name}}</td>
       <td *ngIf="!user.clan">-</td>
       <td>{{user.population}}</td>
       <td>{{user.townsCount}}</td>

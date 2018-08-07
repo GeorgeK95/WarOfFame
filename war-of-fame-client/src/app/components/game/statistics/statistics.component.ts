@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {UserModel} from '../../../core/model/user.model';
+import {UserModel} from '../../../core/model/user/user.model';
 import {StatisticsService} from '../../../core/service/statistics/statistics.service';
-import {StatisticsResponseModel} from '../../../core/model/statistics-response.model';
-import {UserResponseModel} from '../../../core/model/user-response.model';
+import {StatisticsResponseModel} from '../../../core/model/response/statistics-response.model';
+import {UserResponseModel} from '../../../core/model/response/user-response.model';
 
 @Component({
   selector: 'app-statistics',

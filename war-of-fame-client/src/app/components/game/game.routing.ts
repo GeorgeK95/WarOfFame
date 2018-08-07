@@ -4,23 +4,22 @@ import {MapComponent} from './map/map.component';
 import {ReportsComponent} from './reports/reports.component';
 import {GameComponent} from './game/game.component';
 import {ClanComponent} from './clan/clan.component';
+import {ProfileComponent} from './profile/profile.component';
 
-const GAME = 'game';
-const EMPTY = '';
-const KINGDOM = 'kingdom';
+const TOWN = 'town';
 const MAP = 'map';
 const STATISTICS = 'statistics';
 const REPORTS = 'reports';
+const USER = 'user/:name';
 const MESSAGES = 'messages';
-const FULL = 'full';
 const CLAN = 'clan/:name';
 
 export const gameRoutes = [
-  // {path: EMPTY, component: GameComponent},
-  {path: KINGDOM, component: GameComponent},
+  {path: TOWN, component: GameComponent},
   {path: CLAN, component: ClanComponent},
   {path: MAP, component: MapComponent},
   {path: STATISTICS, component: StatisticsComponent},
+  {path: USER, component: ProfileComponent},
   {path: REPORTS, component: ReportsComponent},
   {path: MESSAGES, component: MessagesComponent}
 ];

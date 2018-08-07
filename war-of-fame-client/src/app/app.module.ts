@@ -10,7 +10,7 @@ import {AboutComponent} from './components/about/about.component';
 import {ServiceModule} from './core/service/services.module';
 import {GuardsModule} from './core/guard/guards.module';
 import {SharedModule} from './components/shared/shared.module';
-import {AuthModule} from './components/user/auth.module';
+import {AuthModule} from './components/auth/auth.module';
 import {GameModule} from './components/game/game.module';
 import {ErrorInterceptor} from './core/interceptor/error.interceptor';
 import {SignInInterceptor} from './core/interceptor/sign-in.interceptor';
@@ -19,7 +19,7 @@ import {AuthService} from './core/service/auth/auth.service';
 import {ContactsComponent} from './components/contacts/contacts.component';
 import {ToastrModule} from 'ngx-toastr';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {ProfileComponent} from './components/user/profile/profile.component';
+import {ProfileComponent} from './components/game/profile/profile.component';
 
 @NgModule({
   declarations: [

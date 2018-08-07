@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../../../core/service/auth/auth.service';
 import {Router} from '@angular/router';
-import {SignInModel} from '../../../core/model/sign-in.model';
+import {SignInModel} from '../../../core/model/user/sign-in.model';
+import {SignInResponseModel} from '../../../core/model/response/sign-in-response.model';
 
 @Component({
   selector: 'app-login',
@@ -9,8 +10,6 @@ import {SignInModel} from '../../../core/model/sign-in.model';
   styleUrls: ['./sign-in.component.css']
 })
 export class SignInComponent implements OnInit {
-
-  readonly ACCESS_TOKEN = 'accessToken';
   readonly HOME_URL = '/';
   private login: SignInModel;
 
@@ -19,8 +18,7 @@ export class SignInComponent implements OnInit {
 
   onLogin() {
     this.service.login(this.login)
-      .subscribe(res => {
-        this.service.authToken = res[this.ACCESS_TOKEN];
+      .subscribe(() => {
         this.router.navigate([this.HOME_URL]);
       }, error => console.log(error));
   }

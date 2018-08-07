@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {SignUpModel} from '../../../core/model/sign-up.model';
+import {SignUpModel} from '../../../core/model/user/sign-up.model';
 import {AuthService} from '../../../core/service/auth/auth.service';
 
 @Component({
@@ -9,7 +9,7 @@ import {AuthService} from '../../../core/service/auth/auth.service';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit {
-  readonly SIGN_IN_URL = '/user/signin';
+  readonly SIGN_IN_URL = '/auth/signin';
   private register: SignUpModel;
 
   constructor(private service: AuthService, private router: Router) {

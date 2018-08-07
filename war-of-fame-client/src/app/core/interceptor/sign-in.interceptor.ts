@@ -4,6 +4,8 @@ import {tap} from 'rxjs/operators';
 import {Router} from '@angular/router';
 import {Injectable} from '@angular/core';
 import {ToastrService} from 'ngx-toastr';
+import {SignInResponseModel} from '../model/response/sign-in-response.model';
+import {AuthService} from '../service/auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +24,8 @@ export class SignInInterceptor implements HttpInterceptor {
 
   constructor(
     private toastr: ToastrService,
-    private router: Router
+    private router: Router,
+    private service: AuthService
   ) {
   }
 
@@ -46,8 +49,9 @@ export class SignInInterceptor implements HttpInterceptor {
       );
   }
 
-  private setDataToLocalStorage(res: object): void {
-    localStorage.setItem(this.AUTH_TOKEN, res[this.ACCESS_TOKEN]);
-    localStorage.setItem(this.USERNAME, res[this.USERNAME]);
+  private setDataToLocalStorage(res: SignInResponseModel): void {
+    localStorage.setItem(this.AUTH_TOKEN, res.accessToken);
+    localStorage.setItem(this.USERNAME, res.username);
+    this.service.authToken = res.accessToken;
   }
 }
