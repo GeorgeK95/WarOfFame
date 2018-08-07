@@ -7,7 +7,7 @@ import {AuthService} from '../../service/auth/auth.service';
   providedIn: 'root'
 })
 export class GameGuard implements CanActivate {
-  readonly LOGIN_URL = '/auth/signin';
+  readonly LOGIN_URL = '/user/signin';
 
   constructor(private service: AuthService, private router: Router) {
   }

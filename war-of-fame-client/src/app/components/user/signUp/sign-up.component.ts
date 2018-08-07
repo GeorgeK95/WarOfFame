@@ -9,7 +9,7 @@ import {AuthService} from '../../../core/service/auth/auth.service';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit {
-  readonly SIGN_IN_URL = '/auth/signin';
+  readonly SIGN_IN_URL = '/user/signin';
   private register: SignUpModel;
 
   constructor(private service: AuthService, private router: Router) {

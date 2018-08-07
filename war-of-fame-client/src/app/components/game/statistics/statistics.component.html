@@ -19,15 +19,15 @@
     <tbody>
 
     <!--<span (mouseover)="hover=true" (mouseleave)="hover=false">-->
-    <tr *ngFor="let user of users | paginate: {
+    <tr *ngFor="let user of statistics?.users | paginate: {
     id: ALL_USERS,
     itemsPerPage: itemsPerPage,
     currentPage: page
     }">
       <td scope="row">{{user.id}}</td>
-      <td><a routerLink="/user/profile/{{user.username}}">{{user.username}}</a></td>
-      <td><a routerLink="/clan/profile/alpha">Alpha</a></td>
-      <!--{{user.clan.name}}-->
+      <td><a routerLink="/auth/user/{{user.username}}">{{user.username}}</a></td>
+      <td *ngIf="user.clan"><a routerLink="/game/clan/{{user.clan.name}}">{{user.clan.name}}</a></td>
+      <td *ngIf="!user.clan">-</td>
       <td>{{user.population}}</td>
       <td>{{user.townsCount}}</td>
     </tr>
